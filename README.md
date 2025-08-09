@@ -6,9 +6,30 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 
 **🆓 完全無料構成**: 各種サービスの無料枠を活用し、維持費ゼロでの運用を実現。詳細は `docs/free-tier-architecture.md` を参照。
 
+### 🔧 開発運用フロー補足
+
+コミットメッセージは Conventional Commits 形式(`<type>(scope): subject`) を採用しています。テンプレート `.gitmessage` を設定するには:
+
+```
+git config commit.template .gitmessage
+```
+
+主な type: feat, fix, chore, docs, refactor, perf, test, build, ci, style, revert
+
+### 🔧 開発運用フロー補足
+
+コミットは Conventional Commits 形式(`<type>(scope): subject`) を使用します。テンプレートはリポジトリ直下の `.gitmessage`。設定:
+
+```
+git config commit.template .gitmessage
+```
+
+主な type: feat, fix, chore, docs, refactor, perf, test, build, ci, style, revert
+
 ## 主要機能
 
 ### 1. 株価分析機能
+
 - リアルタイム株価データの取得・表示
 - テクニカル分析（移動平均、RSI、MACD等）
 - ファンダメンタル分析（PER、PBR、ROE等）
@@ -16,6 +37,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - 過去データの分析・比較
 
 ### 2. AIおすすめ銘柄抽出機能
+
 - 機械学習モデルによる銘柄スコアリング
 - 市場トレンド分析
 - ニュース・業績データの自然言語処理
@@ -23,6 +45,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - ポートフォリオ最適化提案
 
 ### 3. れいキャラクター機能
+
 - セリフ付きおすすめ銘柄紹介
 - ユーザーとの会話インターフェース
 - キャラクター表情・アニメーション
@@ -30,6 +53,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - 投資アドバイス・注意喚起
 
 ### 4. PWA機能
+
 - オフライン対応
 - プッシュ通知（市場動向、重要銘柄情報）
 - アプリライクなUI/UX
@@ -37,6 +61,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - インストール可能
 
 ### 5. ユーザー管理機能
+
 - ユーザープロフィール管理
 - ウォッチリスト機能
 - 投資履歴・パフォーマンス追跡
@@ -45,6 +70,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 ## 技術スタック
 
 ### フロントエンド
+
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + Framer Motion
@@ -54,6 +80,7 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - **UI Components**: Headless UI / Radix UI
 
 ### バックエンド（Serverless構成）
+
 - **Runtime**: Node.js
 - **Framework**: Next.js API Routes (Vercel Serverless Functions)
 - **Database**: Supabase PostgreSQL (無料枠) + Vercel KV Redis (無料枠)
@@ -61,18 +88,21 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - **Authentication**: Supabase Auth (無料枠)
 
 ### AI・データ処理（無料/低コスト構成）
+
 - **ML Framework**: Python (scikit-learn, pandas, numpy) - Vercel Serverless Functions
 - **NLP**: OpenAI GPT-5 (将来リリース時) / GPT-4o (現在) + Hugging Face Transformers (無料)
 - **Data Pipeline**: GitHub Actions (無料枠) + Vercel Cron Jobs
 - **Real-time Processing**: Server-Sent Events (WebSocketの代替, 無料)
 
 ### インフラ・デプロイ（完全無料構成）
+
 - **Hosting**: Vercel (フロントエンド無料枠) + Vercel Serverless Functions (バックエンド)
 - **Database**: Supabase (無料枠: 500MB, 2GB転送/月) + Vercel KV (Redis代替, 無料枠)
 - **CDN**: Cloudflare (無料枠)
 - **Monitoring**: Vercel Analytics (無料枠) + GitHub Actions
 
 ### 外部API（無料枠活用）
+
 - **株価データ**: Alpha Vantage (無料: 500リクエスト/日) + yfinance (Yahoo Finance スクレイピング)
 - **ニュースデータ**: NewsAPI (無料: 1000リクエスト/日) + RSS Feed (無料)
 - **経済指標**: FRED API (完全無料)
@@ -117,6 +147,7 @@ SmartStocks/
 ## 開発フロー
 
 ### Phase 1: 基盤構築（1-2週間）
+
 1. プロジェクトセットアップ
 2. Next.js PWA環境構築
 3. データベース設計・セットアップ
@@ -124,6 +155,7 @@ SmartStocks/
 5. 株価データAPI統合
 
 ### Phase 2: コア機能開発（3-4週間）
+
 1. 株価データ取得・表示機能
 2. 基本的なチャート機能
 3. ユーザー認証・管理機能
@@ -131,12 +163,14 @@ SmartStocks/
 5. 基本的なテクニカル分析
 
 ### Phase 3: AI機能統合（2-3週間）
+
 1. AIモデル開発・訓練
 2. おすすめ銘柄抽出ロジック
 3. ニュース分析機能
 4. スコアリングシステム
 
 ### Phase 4: れいキャラクター実装（2週間）
+
 1. キャラクターデザイン・アセット作成
 2. セリフ生成システム
 3. 会話インターフェース
@@ -144,6 +178,7 @@ SmartStocks/
 5. パーソナリティエンジン
 
 ### Phase 5: PWA機能・最適化（1-2週間）
+
 1. PWA機能実装
 2. プッシュ通知システム
 3. オフライン対応
@@ -151,6 +186,7 @@ SmartStocks/
 5. SEO対策
 
 ### Phase 6: テスト・デプロイ（1週間）
+
 1. ユニット・統合テスト
 2. E2Eテスト
 3. パフォーマンステスト
@@ -160,6 +196,7 @@ SmartStocks/
 ## 主要な技術的考慮事項
 
 ### セキュリティ
+
 - API認証・認可
 - データ暗号化
 - SQL インジェクション対策
@@ -167,6 +204,7 @@ SmartStocks/
 - CSRF対策
 
 ### パフォーマンス
+
 - データキャッシュ戦略
 - 画像最適化
 - コード分割
@@ -174,6 +212,7 @@ SmartStocks/
 - データベースインデックス最適化
 
 ### スケーラビリティ
+
 - 水平スケーリング対応
 - マイクロサービス化の検討
 - 負荷分散
@@ -182,12 +221,14 @@ SmartStocks/
 ## 運用・保守
 
 ### モニタリング
+
 - アプリケーション監視
 - エラートラッキング
 - パフォーマンス監視
 - ユーザー行動分析
 
 ### データ管理
+
 - 定期バックアップ
 - データ保持ポリシー
 - GDPR準拠
@@ -196,6 +237,7 @@ SmartStocks/
 ## 予算・リソース見積もり
 
 ### 開発リソース
+
 - フロントエンド開発者: 1名
 - バックエンド開発者: 1名
 - AI/ML エンジニア: 1名
@@ -203,6 +245,7 @@ SmartStocks/
 - プロジェクトマネージャー: 1名
 
 ### インフラコスト（月額概算）
+
 - Hosting: $50-100
 - Database: $30-50
 - External APIs: $100-200
@@ -210,11 +253,13 @@ SmartStocks/
 - Monitoring: $20-30
 
 ### 開発期間
+
 - 総期間: 10-14週間
 - MVP版: 6-8週間
 - フル機能版: 10-14週間
 
 ## ライセンス・法的考慮事項
+
 - 金融商品取引法への準拠
 - 免責事項の明記
 - プライバシーポリシー
@@ -222,6 +267,7 @@ SmartStocks/
 - データ利用に関する許諾
 
 ## 今後の拡張計画
+
 - 仮想通貨対応
 - 海外株式対応
 - ソーシャル機能

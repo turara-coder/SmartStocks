@@ -1,0 +1,4 @@
+echo "[husky] pre-commit: lint & type-check"
+npm run lint --silent || exit 1
+npm run type-check --silent || exit 1
+npx lint-staged

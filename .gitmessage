@@ -1,0 +1,19 @@
+feat(scope): 概要をここに書く（英/日可）
+
+詳細本文（任意）。72桁折りを意識。空行で区切り。
+
+BREAKING CHANGE: 破壊的変更内容（あれば）
+Refs: #issue-number
+
+# 形式: <type>(<scope>): <subject>
+# type: feat | fix | chore | docs | refactor | perf | test | build | ci | style | revert
+# subject: 先頭小文字 / 末尾ピリオド不要 / 50文字以内
+# scope: 任意 (auth, api, ui など)
+# body: WHY / WHAT / HOW を簡潔に
+
+# 例:
+# feat(auth): Supabase SSRクライアント追加
+# fix(deploy): 環境変数読み込み不具合を修正
+# chore(deps): headlessuiを2.xへ更新
+# docs(readme): 無料構成説明を追記
+# refactor(api): 株価取得処理を分離

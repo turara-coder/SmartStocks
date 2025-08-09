@@ -4,6 +4,8 @@
 
 AIを活用した株価分析システムで、「れい」という女性キャラクターがユーザー「ひろ」に対してセリフ付きでおすすめ銘柄を提案するPWA（Progressive Web App）です。
 
+**🆓 完全無料構成**: 各種サービスの無料枠を活用し、維持費ゼロでの運用を実現。詳細は `docs/free-tier-architecture.md` を参照。
+
 ## 主要機能
 
 ### 1. 株価分析機能
@@ -51,29 +53,30 @@ AIを活用した株価分析システムで、「れい」という女性キャ
 - **State Management**: Zustand
 - **UI Components**: Headless UI / Radix UI
 
-### バックエンド
+### バックエンド（Serverless構成）
 - **Runtime**: Node.js
-- **Framework**: Next.js API Routes / Express.js
-- **Database**: PostgreSQL (メイン) + Redis (キャッシュ)
+- **Framework**: Next.js API Routes (Vercel Serverless Functions)
+- **Database**: Supabase PostgreSQL (無料枠) + Vercel KV Redis (無料枠)
 - **ORM**: Prisma
-- **Authentication**: NextAuth.js
+- **Authentication**: Supabase Auth (無料枠)
 
-### AI・データ処理
-- **ML Framework**: Python (scikit-learn, pandas, numpy)
-- **NLP**: OpenAI GPT API / Hugging Face Transformers
-- **Data Pipeline**: Apache Airflow
-- **Real-time Processing**: WebSocket (ws)
+### AI・データ処理（無料/低コスト構成）
+- **ML Framework**: Python (scikit-learn, pandas, numpy) - Vercel Serverless Functions
+- **NLP**: OpenAI GPT-5 (将来リリース時) / GPT-4o (現在) + Hugging Face Transformers (無料)
+- **Data Pipeline**: GitHub Actions (無料枠) + Vercel Cron Jobs
+- **Real-time Processing**: Server-Sent Events (WebSocketの代替, 無料)
 
-### インフラ・デプロイ
-- **Hosting**: Vercel (フロントエンド) + Railway/DigitalOcean (バックエンド)
-- **Database**: Supabase / PlanetScale
-- **CDN**: Cloudflare
-- **Monitoring**: Sentry + Vercel Analytics
+### インフラ・デプロイ（完全無料構成）
+- **Hosting**: Vercel (フロントエンド無料枠) + Vercel Serverless Functions (バックエンド)
+- **Database**: Supabase (無料枠: 500MB, 2GB転送/月) + Vercel KV (Redis代替, 無料枠)
+- **CDN**: Cloudflare (無料枠)
+- **Monitoring**: Vercel Analytics (無料枠) + GitHub Actions
 
-### 外部API
-- **株価データ**: Alpha Vantage / Yahoo Finance API
-- **ニュースデータ**: NewsAPI / Bloomberg API
-- **経済指標**: FRED API
+### 外部API（無料枠活用）
+- **株価データ**: Alpha Vantage (無料: 500リクエスト/日) + yfinance (Yahoo Finance スクレイピング)
+- **ニュースデータ**: NewsAPI (無料: 1000リクエスト/日) + RSS Feed (無料)
+- **経済指標**: FRED API (完全無料)
+- **AI**: OpenAI GPT-5 (将来) / GPT-4o (現在・従量課金) または Hugging Face (無料)
 
 ## ディレクトリ構造
 
